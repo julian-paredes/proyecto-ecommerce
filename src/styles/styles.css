@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-bar {
+
+    background: linear-gradient(45deg, #344444, #4d7a7a);
+}
+
+.nav-link {
+    color: #a6db56 !important;
+    font-weight: 600;
+    
+}
+
+.nav-name {
+    color: #a6db56 !important;
+    font-weight: bold;
+}
+
+.nav-link:hover, .nav-name:hover {
+    color: greenyellow !important;
+}
+
