@@ -5,21 +5,31 @@
 
 .nav-bar {
 
-    background: linear-gradient(45deg, #344444, #4d7a7a);
+    background: linear-gradient(45deg, #207e7e, #2ecfcf);
 }
 
 .nav-link {
-    color: #a6db56 !important;
+    color: #0d5d69 !important;
     font-weight: 600;
     
 }
 
 .nav-name {
-    color: #a6db56 !important;
+    color: #083941 !important;
     font-weight: bold;
 }
 
-.nav-link:hover, .nav-name:hover {
-    color: greenyellow !important;
+.nav-link:hover {
+    color: #083941 !important;
+}
+
+
+.title-itemList {
+
+    padding: 10px;
+}
+
+.p-itemList{
+    padding-left: 10px;
 }
 
