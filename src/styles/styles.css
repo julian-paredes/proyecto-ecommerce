@@ -19,8 +19,17 @@
     font-weight: bold;
 }
 
+.nav-name:hover {
+    font-weight: 800;
+}
+
 .nav-link:hover {
     color: #083941 !important;
+    font-weight: 500;
+}
+
+.nav-cart:hover {
+    font-weight: 900;
 }
 
 
@@ -33,3 +42,19 @@
     padding-left: 10px;
 }
 
+.counter{
+    padding: 0 10px;
+}
+
+.boton{
+    background: linear-gradient(45deg, #207e7e, #2ecfcf);
+}
+
+.boton-agregar-cart {
+    margin: 1em;
+    
+}
+
+.botonera{
+    padding-left: 2em;
+}

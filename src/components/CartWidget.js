@@ -6,7 +6,7 @@ function CartWidget() {
 
 
     return(
-        <section>
+        <section className="nav-cart">
             <BsCart />
         </section>
     )
