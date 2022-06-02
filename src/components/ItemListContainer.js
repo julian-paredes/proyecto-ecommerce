@@ -1,14 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap"
+import { products } from "../data";
+import ItemList from "./ItemList"
 
 
-function ItemListContainer({ nombre }) {
+function ItemListContainer() {
 
-    const productos = 10;
+    const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    const pedirDatos = () => {
+        
+        return new Promise ((resolve,reject) => {
+
+            setTimeout(() => {
+                resolve(products)
+            }, 2000)
+        })
+    }
+
+    useEffect(() => {
+        setLoading(true)
+        pedirDatos()
+        .then ((resp) => {
+            setItems(resp)
+        })
+        .catch((err) => {
+            console.log('ERROR',err)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+    }, [])
+    
+
+
     return (
         <section>
-            <h2 className="title-itemList">Lista de productos: {productos}</h2>
-            <hr></hr>
-            <p className="p-itemList">Bienvenido {nombre}</p>
+            {
+                loading
+                ?   <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                : <ItemList items={items} />
+            }
         </section>
     )
 

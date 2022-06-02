@@ -13,8 +13,8 @@ function App() {
       <NavBar>
         <CartWidget />
       </NavBar>
-      <ItemListContainer nombre="Julián"/>
-      <ItemCount prod="10"/>      
+      <ItemListContainer />
+      <ItemCount prod="3"/>      
      
     </div>
   );

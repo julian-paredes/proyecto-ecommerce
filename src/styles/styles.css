@@ -33,7 +33,7 @@
 }
 
 
-.title-itemList {
+.title-itemList, .name-prod, .price-prod {
 
     padding: 10px;
 }
@@ -57,4 +57,10 @@
 
 .botonera{
     padding-left: 2em;
+}
+
+.img-prod {
+    height: 250px;
+    width: auto;
+
 }
