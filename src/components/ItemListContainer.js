@@ -21,7 +21,7 @@ function ItemListContainer() {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
+        pedirDatos(2)
         .then ((resp) => {
             setItems(resp)
         })

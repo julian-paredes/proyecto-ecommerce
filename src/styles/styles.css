@@ -33,7 +33,7 @@
 }
 
 
-.title-itemList, .name-prod, .price-prod {
+.title-itemList, .name-prod, .price-prod, .desc-prod {
 
     padding: 10px;
 }
@@ -63,4 +63,8 @@
     height: 250px;
     width: auto;
 
+}
+
+.detail-container{
+    text-align: center;
 }
