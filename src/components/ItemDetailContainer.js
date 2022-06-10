@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Spinner } from "react-bootstrap";
 import { ItemDetail } from "./ItemDetail"
+import { useParams } from "react-router-dom";
 import { products } from "../data";
+
 
 
 function ItemDetailContainer() {
@@ -11,15 +13,17 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(true);
 
 
+    const { itemId } = useParams();
+    console.log(itemId);
 
 
-    const pedirDatos = (itemId) => {
+    const pedirDatos = () => {
         
         return new Promise ((resolve,reject) => {
     
             setTimeout(() => {
                 resolve(
-                    () => products.find((item) => item.id === itemId)
+                    products
                 )
             }, 2000)
         })
@@ -27,9 +31,9 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos(2)
+        pedirDatos()
         .then ((resp) => {
-            setItem(resp)
+            setItem(resp.find((item) => item.id === Number(itemId)))
         })
         .catch((err) => {
             console.log('ERROR',err)
@@ -45,12 +49,12 @@ function ItemDetailContainer() {
         <>
             {
                 loading
-                ?   <Spinner animation="border" role="status">
+                ?   <Spinner className="spinner" animation="border" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 :
-                <div class="detail-container">
-                    <h2>Detalle de Producto:</h2>
+                <div className="detail-container">
+                    <h2>Detalle del producto:</h2>
                     <ItemDetail item={item} />
                 </div> 
             }

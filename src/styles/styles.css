@@ -3,6 +3,16 @@
     margin: 0;
 }
 
+html {
+    height: 100%;
+  }
+  
+  body {
+    
+    height: inherit;
+    margin: 0;
+  }
+
 .nav-bar {
 
     background: linear-gradient(45deg, #207e7e, #2ecfcf);
@@ -55,9 +65,6 @@
     
 }
 
-.botonera{
-    padding-left: 2em;
-}
 
 .img-prod {
     height: 250px;
@@ -68,3 +75,12 @@
 .detail-container{
     text-align: center;
 }
+
+.item-container {
+    text-align: center;
+}
+
+.button-detail {
+    background: linear-gradient(45deg, #207e7e, #2ecfcf);
+}
+
