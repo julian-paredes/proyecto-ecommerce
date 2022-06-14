@@ -1,30 +1,28 @@
 import React from "react";
-import { useState } from "react";
 import { Button } from "react-bootstrap";
 
-function ItemCount({prod}) {
+function ItemCount({maxProd, contador, setContador, onAdd}) {
 
-    const [contador,setContador] = useState(1);
-
-    const sumarProducto = () => {
-        if(contador< prod)
+    const handleSumar = () => {
+        if(contador< maxProd)
         setContador(contador + 1)
     }
 
-    const restarProducto = () =>{
-        if(contador>1)
-        setContador(contador - 1)
+    const handleRestar = () => {
+        contador > 1 && setContador(contador - 1)
     }
+
+   
 
 
     return(
         <>
         <section className="botonera">
-        <Button className="boton" onClick={restarProducto}>-</Button>
+        <Button className="boton" onClick={handleRestar}>-</Button>
         <span className="counter">{contador}</span>
-        <Button className="boton" onClick={sumarProducto}>+</Button>
+        <Button className="boton" onClick={handleSumar}>+</Button>
         </section>
-        <div className="boton-agregar-cart"><Button className="boton">Agregar al Carrito</Button></div>
+        <div className="boton-agregar-cart"><Button onClick={onAdd} className="boton">Agregar al Carrito</Button></div>
         </>
     )
 }

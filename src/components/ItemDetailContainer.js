@@ -54,7 +54,6 @@ function ItemDetailContainer() {
                     </Spinner>
                 :
                 <div className="detail-container">
-                    <h2>Detalle del producto:</h2>
                     <ItemDetail item={item} />
                 </div> 
             }

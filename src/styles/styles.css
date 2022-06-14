@@ -82,5 +82,6 @@ html {
 
 .button-detail {
     background: linear-gradient(45deg, #207e7e, #2ecfcf);
+    text-align: left;
 }
 

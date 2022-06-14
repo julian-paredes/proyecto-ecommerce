@@ -23,7 +23,8 @@ const products = [
         precio: 1500,
         imagen: imagen1,
         descripcion:"Guitarra Fender Stratocaster 1995",
-        categoria: "guitars"
+        categoria: "guitars",
+        stock: 10 
     },
 
     {
@@ -32,7 +33,8 @@ const products = [
         precio: 2000,
         imagen: imagen2,
         descripcion:"Guitarra Gibson Les Paul 1992",
-        categoria: "guitars"
+        categoria: "guitars",
+        stock: 10
     },
 
     {
@@ -41,16 +43,18 @@ const products = [
         precio: 1200,
         imagen: imagen3,
         descripcion: "Guitarra Fender Telecaster 1990",
-        categoria: "guitars"
+        categoria: "guitars",
+        stock: 10
     },
 
     {
         id: 4,
         nombre: "Fender Jazz Bass",
-        precio: 1800,
+        precio: 2000,
         imagen: imagen4,
-        descripcion:"Bajo Fender Jazz Bass 1995",
-        categoria: "basses"
+        descripcion:"Bajo Fender Jazz Bass 1995 - 5 cuerdas",
+        categoria: "basses",
+        stock: 10
     },
 
     {
@@ -59,7 +63,8 @@ const products = [
         precio: 2500,
         imagen: imagen5,
         descripcion:"Bajo Rickenbacker 4003",
-        categoria: "basses"
+        categoria: "basses",
+        stock: 10
     },
 
     {
@@ -68,7 +73,8 @@ const products = [
         precio: 1500,
         imagen: imagen6,
         descripcion:"Bajo Musicman Stingray 2000",
-        categoria: "basses"
+        categoria: "basses",
+        stock: 10
     },
 
     {
@@ -77,7 +83,8 @@ const products = [
         precio: 1000,
         imagen: imagen7,
         descripcion:"Bateria Tama Imperialstar 5 cuerpos",
-        categoria: "drums"
+        categoria: "drums",
+        stock: 10
     },
 
     {
@@ -86,7 +93,8 @@ const products = [
         precio: 1600,
         imagen: imagen8,
         descripcion:"Bateria Pearl Master Series 5 cuerpos",
-        categoria: "drums"
+        categoria: "drums",
+        stock: 10
     },
 
     {
@@ -95,7 +103,8 @@ const products = [
         precio: 4000,
         imagen: imagen9,
         descripcion:"Bateria DW Collector Series 5 cuerpos",
-        categoria: "drums"
+        categoria: "drums",
+        stock: 10
     },
 
     {
@@ -104,7 +113,8 @@ const products = [
         precio: 1000,
         imagen: imagen10,
         descripcion:"Amplificador Fender Deluxe 50 Watts",
-        categoria: "amps"
+        categoria: "amps",
+        stock: 10
     },
 
     {
@@ -113,7 +123,8 @@ const products = [
         precio: 2000,
         imagen: imagen11,
         descripcion:"Cabezal Marshall JCM900 + Cabinet 4x12",
-        categoria: "amps"
+        categoria: "amps",
+        stock: 10
     },
 
     {
@@ -122,7 +133,8 @@ const products = [
         precio: 800,
         imagen: imagen12,
         descripcion:"Amplificador Vox AC15",
-        categoria: "amps"
+        categoria: "amps",
+        stock: 10
     },
 
     {
@@ -131,7 +143,8 @@ const products = [
         precio: 110,
         imagen: imagen13,
         descripcion:"Pedal overdrive TubeScreamer Ts9dx",
-        categoria: "effects"
+        categoria: "effects",
+        stock: 10
     },
 
     {
@@ -140,7 +153,8 @@ const products = [
         precio: 80,
         imagen: imagen14,
         descripcion:"Pedal de distorsión Boss Distortion DS-1",
-        categoria: "effects"
+        categoria: "effects",
+        stock: 10
     },
 
     {
@@ -149,7 +163,8 @@ const products = [
         precio: 500,
         imagen: imagen15,
         descripcion:"Pedal de delay Eventide Timefactor",
-        categoria: "effects"
+        categoria: "effects",
+        stock: 10
     },
 
     
