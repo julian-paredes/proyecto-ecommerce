@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
+import {CartWidget} from './CartWidget';
 
 function NavBar( {children}) {
 
@@ -32,7 +33,7 @@ function NavBar( {children}) {
                 </Nav>
                 <Nav className="nav-right">
                 <LinkContainer to={"/cart"}>
-                    <Nav.Link className="navlink" href="/cart">{children}</Nav.Link>
+                    <Nav.Link className="navlink" href="/cart"><CartWidget /></Nav.Link>
                 </LinkContainer>    
                 </Nav>
                 </Navbar.Collapse>

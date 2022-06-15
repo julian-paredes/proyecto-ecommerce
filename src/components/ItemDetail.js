@@ -2,14 +2,16 @@ import React from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import { ItemCount } from './ItemCount';
-
+import { CartContext } from '../context/CartContext';
+import { useContext } from 'react';
 
 
 
 function ItemDetail( {item} ) {
 
+    const {addItem, isInCart} = useContext(CartContext)
     const [cantidad,setCantidad] = useState(1);
-    const [bandera,setBandera] = useState(false)
+    
 
     const navigate = useNavigate();
 
@@ -25,7 +27,9 @@ function ItemDetail( {item} ) {
             cantidad
         }
 
-        setBandera(true)
+        
+        
+        addItem(itemToCart)
 
         console.log(itemToCart);
     }
@@ -39,7 +43,7 @@ function ItemDetail( {item} ) {
             <h4 className="price-prod">Precio: {item.precio} USD</h4>
             
             {
-            bandera    
+            isInCart(item.id)
             ? <Link to="/cart" className='btn btn-success my-3 button-detail'>Finalizar mi compra</Link>
             :
             <ItemCount 

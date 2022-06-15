@@ -85,3 +85,16 @@ html {
     text-align: left;
 }
 
+.nav-cart {
+    font-size: 30px;
+}
+
+.cart-detail {
+    text-align: center;
+}
+
+.img-cart-detail {
+    height: 150px;
+    width: auto;
+}
+

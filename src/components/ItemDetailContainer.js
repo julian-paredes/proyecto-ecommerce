@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import React from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom";
@@ -14,7 +14,7 @@ function ItemDetailContainer() {
 
 
     const { itemId } = useParams();
-    console.log(itemId);
+    
 
 
     const pedirDatos = () => {

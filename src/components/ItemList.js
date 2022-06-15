@@ -6,7 +6,7 @@ function ItemList( {items} ) {
 
     return (
         <div>
-            <h2 className="title-itemList">Lista de productos</h2>
+            <h2 className="title-itemList">Lista de productos:</h2>
             <hr></hr>
 
             {
