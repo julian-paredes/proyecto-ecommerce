@@ -6,14 +6,17 @@ import { useContext } from "react";
 
 function CartWidget() {
 
-    const { totalQuantity } = useContext(CartContext)
+    const { cart, totalQuantity } = useContext(CartContext)
 
-    return(
-        <section >
-            <BsCart className="nav-cart"/>
-            <span>{totalQuantity()}</span>
-        </section>
-    )
+    if (cart.length)
+        return(
+            <section>
+                 
+                <BsCart className="nav-cart"/>
+                <span>{totalQuantity()}</span>
+                
+            </section>
+        )
 }
 
 export { CartWidget };

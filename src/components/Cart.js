@@ -1,12 +1,22 @@
 import React, { useContext } from "react"
 import {BsFillTrashFill} from "react-icons/bs"
 import { CartContext } from "../context/CartContext"
+import { Link } from "react-router-dom"
 
 
 
 function Cart() {
 
     const { cart, totalPrice, clearCart, removeItem } = useContext(CartContext)
+
+    if (cart.length === 0) {
+        return (
+            <div className="cart-detail">
+                <h2>Tu carrito esta vacío </h2>
+                <Link to="/" className='btn btn-success my-3 button-detail'>Volver al inicio</Link>
+            </div>
+        )
+    }
 
     return (
         <div className="cart-detail">
@@ -28,7 +38,6 @@ function Cart() {
         }
 
         <h4>Total: ${totalPrice()}</h4>
-
         <button onClick={clearCart} className="btn btn-danger">Vaciar carrito</button>
         </div>
     )
