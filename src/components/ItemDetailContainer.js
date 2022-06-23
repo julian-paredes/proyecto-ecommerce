@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom";
-import { products } from "../data";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 
 
@@ -15,32 +16,33 @@ function ItemDetailContainer() {
 
     const { itemId } = useParams();
     
-
-
-    const pedirDatos = () => {
+    useEffect(() => {
+        setLoading(true)
         
-        return new Promise ((resolve,reject) => {
-    
-            setTimeout(() => {
-                resolve(
-                    products
-                )
-            }, 2000)
-        })
-    }
+        const docRef = doc(db, "productos", itemId)
+        getDoc(docRef)
+            .then((doc) => {
+                setItem( { id: doc.id, ...doc.data()} )
+            })
+            .finally(() => {
+                setLoading(false)
+            }
+            )
+    }, [])
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-        .then ((resp) => {
-            setItem(resp.find((item) => item.id === Number(itemId)))
-        })
-        .catch((err) => {
-            console.log('ERROR',err)
-        })
-        .finally(() => {
-            setLoading(false)
-        })
+        
+        const docRef = doc(db, "productos", itemId)
+        
+        getDoc(docRef)
+            .then((doc) => {
+                setItem( {id: doc.id, ...doc.data()} )
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
     }, [])
 
 
