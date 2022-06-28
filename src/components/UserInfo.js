@@ -9,7 +9,7 @@ function UserInfo() {
 
         <div className="container d-flex justify-content-between py-2">
             <p>Bienvenido, {auth.userId}</p>
-            <button onClick={logout} className="btn button-detail">Cerrar Sesion</button>
+            <button onClick={logout} className="btn btn-success my-1 button-detail">Cerrar Sesion</button>
         </div>
     )
 }

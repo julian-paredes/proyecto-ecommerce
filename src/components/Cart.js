@@ -39,6 +39,8 @@ function Cart() {
 
         <h4>Total: ${totalPrice()}</h4>
         <button onClick={clearCart} className="btn btn-danger">Vaciar carrito</button>
+        <Link to="/checkout" className='btn btn-success mx-4 button-detail'>Ir al Checkout</Link>
+
         </div>
     )
 }
