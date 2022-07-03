@@ -10,7 +10,6 @@ import { Checkout } from "../components/Checkout";
 
 function PrivateRoutes() {
 
-
     return(
     <>
         <NavBar />
@@ -26,6 +25,5 @@ function PrivateRoutes() {
     </>
     )
 }
-
 
 export { PrivateRoutes }

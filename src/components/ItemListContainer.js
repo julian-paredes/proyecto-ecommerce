@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap"
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList"
 import { collection, where, query, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
+import { Loader } from "./Loader";
 
 
 function ItemListContainer() {
@@ -15,7 +15,6 @@ function ItemListContainer() {
     
     useEffect(() => {
         setLoading(true)
-
         const productosRef = collection(db, "productos")
         const q = categoryId ? query(productosRef, where("categoria", "==", categoryId)) : productosRef
         getDocs(q)
@@ -28,7 +27,6 @@ function ItemListContainer() {
                 })
                 
                 setItems(newItems);
-                console.log(newItems);
             })
             .finally(
                 setLoading(false)
@@ -36,24 +34,15 @@ function ItemListContainer() {
         
     }, [categoryId])
     
-
-
     return (
         <section>
             {
                 loading
-                ?   <Spinner animation="border" role="status" className="spinner">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                : 
-                <>
-                  <ItemList items={items} />
-                  
-                </> 
+                ?  <Loader />
+                :  <ItemList items={items} />
             }
         </section>
     )
-
 }
 
 export { ItemListContainer };

@@ -6,15 +6,18 @@ import { collection, getDocs, addDoc, writeBatch, query, where, documentId } fro
 
 function Checkout() {
 
-    const { cart, totalPrice, clearCart } = useContext(CartContext)
+    const { cart, totalPrice, clearCart} = useContext(CartContext)
 
     const [values, setValues] = useState({
         nombre: '',
+        direccion: '',
         phone: '',
         email: ''
     })
 
     const [orderId, setOrderId] = useState(null)
+
+    const [errCheck, setErrCheck] = useState({})
 
     const handleInputChange = (e) => {
         setValues({
@@ -27,15 +30,25 @@ function Checkout() {
         e.preventDefault()
 
         if (values.nombre.length < 5) {
-            alert("El nombre es demasiado corto")
+            setErrCheck({
+                nombre: "El nombre es inválido o demasiado corto"})
             return
         }
+
+        if (values.direccion.length < 5) {
+            setErrCheck({
+                direccion: "La direccion es inválida"})
+            return
+        }
+
         if (values.phone.length < 5) {
-            alert("El número de contacto es inválido")
+            setErrCheck({
+                phone: "El número de contacto es inválido"})
             return
         }
         if (values.email.length < 5) {
-            alert("El email es inválido")
+            setErrCheck({
+                email: "El email es inválido"})
             return
         }
 
@@ -75,7 +88,6 @@ function Checkout() {
                     clearCart()
                 })
         } else {
-            console.log(outOfStock)
             alert("Hay items sin stock!")
         }
         
@@ -110,16 +122,33 @@ function Checkout() {
                     placeholder="Nombre"
                     className="form-control my-2"
                 />
+
+                {errCheck.nombre && <p className="text-danger">{errCheck.nombre}</p>}
+
+                <input
+                    value={values.direccion}
+                    name="direccion"
+                    onChange={handleInputChange}
+                    type={"text"}
+                    placeholder="Direccion"
+                    className="form-control my-2"
+                />
+
+                {errCheck.direccion && <p className="text-danger">{errCheck.direccion}</p>}
+
                 <input
                     value={values.phone}
                     name="phone"
                     onChange={handleInputChange}
-                    type={"number"}
+                    type={"tel"}
                     placeholder="Número de contacto"
                     className="form-control my-2"
                 />
+
+                {errCheck.phone && <p className="text-danger">{errCheck.phone}</p>}
+
                 <input
-                    value={values.direccion}
+                    value={values.email}
                     name="email"
                     onChange={handleInputChange}
                     type={"text"}
@@ -127,7 +156,9 @@ function Checkout() {
                     className="form-control my-2"
                 />
 
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                {errCheck.email && <p className="text-danger">{errCheck.email}</p>}
+
+                <button type="submit" className="text-white btn button-detail">Enviar</button>
             </form>
             <button onClick={clearCart} className="btn btn-danger my-2">Cancelar mi compra</button>
         </div>

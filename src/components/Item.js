@@ -8,7 +8,7 @@ function Item({item}) {
             <div className='item-container'>
                 <h2 className="name-prod">{item.nombre}</h2>
                 <img className="img-prod" src={item.imagen} alt="imagen de producto"/>
-                <p className="price-prod">Precio: {item.precio} USD</p>
+                <p className="price-prod"><strong>{item.precio} USD</strong></p>
                 <Link to={`/item/${item.id}`}>
                 <button className="btn btn-primary my-2 button-detail">Ver más</button>
                 </Link>

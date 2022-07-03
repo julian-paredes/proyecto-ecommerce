@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
-
+import { Loader } from "./Loader";
 
 
 function ItemDetailContainer() {
@@ -45,15 +44,12 @@ function ItemDetailContainer() {
 
     }, [])
 
-
     return (
 
         <>
             {
                 loading
-                ?   <Spinner className="spinner" animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
+                ?  <Loader />
                 :
                 <div className="detail-container">
                     <ItemDetail item={item} />

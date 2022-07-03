@@ -9,8 +9,6 @@ const mockUsers = [
 
 export const AuthContext = createContext()
 
-
-
 function AuthProvider({children}) {
 
     const [auth, setAuth] = useState({
@@ -18,11 +16,12 @@ function AuthProvider({children}) {
         userId: null
     })
 
-    console.log(auth);
+    const [error, setError] = useState({})
 
     const login = (values) => {
         const {email, password} = values
 
+        setError({})
         const match = mockUsers.find((user) => user.email === email)
 
         if (match){
@@ -33,12 +32,17 @@ function AuthProvider({children}) {
                     userId: match.email
                 })
             } else{
-                alert("Password Incorrecto")
+                
+                setError({
+                    password: "Contraseña incorrecta!"
+                })
 
             }
         } else {
-            alert("Usuario no encontrado")
-
+        
+            setError({
+                email: "Usuario inválido!"
+            })
         }
     }
 
@@ -50,12 +54,10 @@ function AuthProvider({children}) {
     }
 
     return (
-        <AuthContext.Provider value={{auth,login,logout}}>
+        <AuthContext.Provider value={{auth,login,logout,error, setError}}>
             {children}
         </AuthContext.Provider>
     )
 }
-
-
 
 export { AuthProvider }

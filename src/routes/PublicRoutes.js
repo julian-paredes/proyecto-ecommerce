@@ -5,8 +5,6 @@ import { LoginScreen } from "../components/LoginScreen"
 
 function PublicRoutes() {
 
-
-
     return(
         <Routes>
             <Route path='/login' element={ <LoginScreen /> } />
